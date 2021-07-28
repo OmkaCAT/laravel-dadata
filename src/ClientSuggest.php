@@ -205,11 +205,7 @@ class ClientSuggest
                     throw new RuntimeException('Error parsing response: ' . json_last_error_msg());
                 }
 
-                if (empty($result['suggestions'][0])) {
-                    throw new RuntimeException('Empty result');
-                }
-
-                return count($result['suggestions']) === 1 ? $result['suggestions'][0] : $result['suggestions'];
+                return $result['suggestions'];
 
                 break;
             case 400:
